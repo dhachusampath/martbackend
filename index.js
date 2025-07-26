@@ -3,6 +3,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const nodemailer = require("nodemailer");
+const contactRoutes = require('./router/contact-router');
 
 const app = express();
 
@@ -10,6 +11,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
+app.use("/api",contactRoutes);
 
 // Verify environment variables are loaded
 console.log("Environment Variables:", {
